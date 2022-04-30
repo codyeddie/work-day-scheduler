@@ -18,7 +18,7 @@ var timeBlockGen = function() {
         var textEl = $('<textarea>')
         $(textEl).attr("placeholder", "task")
         .text("")
-        .addClass("col-8 description")
+        .addClass("col-8 description past")
         var saveBtn = $('<button>')
         .text("Save Task")
         .addClass("col-1 saveBtn")
@@ -26,7 +26,7 @@ var timeBlockGen = function() {
         timeBlockEl.append(hourEl)
         timeBlockEl.append(textEl)
         timeBlockEl.append(saveBtn)
-
+        
         //create an on click event for save button that will save tasks to local storage 
         saveBtn.click(function(t){
             console.log("click");
@@ -67,3 +67,21 @@ var loadTasks = function(){
    appendTasks()
   }
   loadTasks();
+
+
+var taskWarning = function() {
+    $('.hour').each(function () {
+      var taskTime = $(this).text();
+      var presentTime = moment().format('HH');
+      var workHours = moment(taskTime, 'h:mm a').format('HH');
+      if (workHours < presentTime) {
+        $(this).addClass('past');
+      } else if (workHours === presentTime) {
+        $(this).addClass('present');
+      } else {
+        $(this).addClass('future');
+      }
+    });
+  }
+  
+  taskWarning();

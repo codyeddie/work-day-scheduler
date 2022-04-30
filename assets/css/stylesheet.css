@@ -69,3 +69,7 @@ body {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
+
+  .text-area-color {
+      background-color: rgb(175, 175, 175);
+  }
