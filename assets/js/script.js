@@ -8,11 +8,17 @@ $("#currentDay").text(moment().format('MMMM Do YYYY'));
 var timeBlockGen = function() {
     for (var i = 0; i < currentHour.length; i++) {
       var timeBlockEl = $("<div>")
+      .addClass("row time-block")
       var hourEl =$("<h2>")
       .text(currentHour[i])
+      .addClass("hour col 1")
       var textEl = $('<textarea>')
-      .text('');
+      $(textEl).attr("placeholder", "task")
+      .text("")
+      .addClass("col-8 description")
       var saveBtn = $('<button>')
+      .text("Save Task")
+      .addClass("col-1 saveBtn")
       timeBlocks.append(timeBlockEl)
       timeBlockEl.append(hourEl)
       timeBlockEl.append(textEl)
