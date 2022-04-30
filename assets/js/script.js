@@ -26,7 +26,7 @@ var timeBlockGen = function() {
         timeBlockEl.append(hourEl)
         timeBlockEl.append(textEl)
         timeBlockEl.append(saveBtn)
-        
+
         //create an on click event for save button that will save tasks to local storage 
         saveBtn.click(function(t){
             console.log("click");
@@ -41,5 +41,29 @@ var timeBlockGen = function() {
         });
     }
 };
+
 timeBlockGen()
-  
+
+
+//placing items from local storage into the textblock
+var appendTasks = function(){
+    $.each(tasks, function(key, value){
+      var hour = key;
+      var taskText = value;
+      var time = $('.time-block').find(".hour").filter(function(){
+        return $(this).text() === hour
+      })
+      var updateName = time.siblings('.description')
+      updateName.text(taskText)
+    })
+  }
+
+// loading the items from local storage
+var loadTasks = function(){
+    tasks = JSON.parse(localStorage.getItem('Tasks'))
+    if (!tasks) {
+      tasks = {}
+    } 
+   appendTasks()
+  }
+  loadTasks();
