@@ -2,8 +2,7 @@ var currentHour = ["9 AM", "10 AM","11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 
 var timeBlocks = $(".container")  
 
 // add curret date to page
-var currentDate = $('#currentDay');
-currentDate.textContent = moment().format('MMMM Do YYYY');
+$("#currentDay").text(moment().format('MMMM Do YYYY'));
 
 // creating and appending time blocks to the page 
 var timeBlockGen = function() {
