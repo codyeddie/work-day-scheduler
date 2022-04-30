@@ -15,6 +15,7 @@ A web application that records tasks for the current day based on a normal work 
 
 ## Link/Screenshot
 https://codyeddie.github.io/work-day-scheduler/
+
 <img src="./assets/images/livesitescreenshot.jpg"/>
 
 # Contributions
